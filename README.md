@@ -3,7 +3,19 @@ This project trains a **Siamese Network** on a subset of the **Pins Face Recogni
 
 ![Siamese_Overall_Architecture](https://github.com/user-attachments/assets/ab6f2ef5-8970-4e43-a0d1-3b2b925bb2b9)
 
-### How Triplet Loss Works
+## Table of Contents
+- [How Triplet Loss Works](#how-triplet-loss-works)
+- [Pins Face Recognition Dataset](#pins-face-recognition-dataset)
+- [Augmentation Pipeline](#augmentation-pipeline)
+- [Training](#training)
+  - [Config](#config)
+  - [Result](#result)
+- [Inference Samples](#inference-samples)
+  - [Sample 1 (Alex Turner)](#sample-1-alex-turner)
+  - [Sample 2 (Enrique Iglesias)](#sample-2-enrique-iglesias)
+
+
+## How Triplet Loss Works
 
 The loss operates on triplets: **Anchor (A)**, **Positive (P)**, and **Negative (N)**. It ensures:
 
@@ -27,7 +39,7 @@ For this project, we used a **subset of 30 individuals** to reduce computational
 |--------------------------------|-------------------------------------|
 | ![Full Dataset](https://github.com/user-attachments/assets/c4310ccb-98a6-44c9-a168-980665493ed0) | ![Chosen Subset](https://github.com/user-attachments/assets/d2149c60-57d5-46c1-b924-4ce457c6e7a4) |
 
-## Augmentation Pipline
+## Augmentation Pipeline
 ```python
 augmented_transform = transforms.Compose([
     transforms.RandomResizedCrop(224, scale=(0.8, 1.0)),
