@@ -18,11 +18,9 @@ Where $f(x)$ is the embedding, $\|\cdot\|_2$ is the Euclidean distance, and $\al
 ## Pins Face Recognition Dataset
 [![Open in Kaggle](https://kaggle.com/static/images/open-in-kaggle.svg)](https://www.kaggle.com/datasets/hereisburak/pins-face-recognition)
 
-![image](https://github.com/user-attachments/assets/f45ec071-b0fa-444a-beb1-61fdc4d167a3)
+The **Pins Face Recognition dataset** contains **17,534 cropped images** of **105 celebrities** collected from **Pinterest**, offering diverse poses and lighting for training face recognition models.  
 
-The Pins Face Recognition dataset is a collection of facial images designed for training and evaluating face recognition models. It contains images of 105 individuals, captured in a variety of poses and lighting conditions, offering good diversity that is particularly useful for training embedded-based models.
-
-For this project, we used a subset of the dataset, selecting only 30 individuals out of the 105 available for training. This subset was chosen to reduce computational complexity while leveraging the dataset's diversity to ensure effective model training on low resources.
+For this project, we used a **subset of 30 individuals** to reduce computational complexity while ensuring effective training on embedded systems.
 
 
 | **Full Dataset Distribution** | **Chosen 30 Persons from Dataset** |
@@ -32,15 +30,38 @@ For this project, we used a subset of the dataset, selecting only 30 individuals
 ## Augmentation Pipline
 ```python
 augmented_transform = transforms.Compose([
-    transforms.RandomResizedCrop(224, scale=(0.8, 1.0)),  # Randomly crop and resize
-    transforms.RandomHorizontalFlip(p=0.5),  # Randomly flip horizontally
-    transforms.RandomRotation(degrees=45),  # Random rotation
-    transforms.RandomAffine(degrees=0, translate=(0.1, 0.1)),  # Random translation
-    transforms.ColorJitter(brightness=0.2, contrast=0.2, saturation=0.2, hue=0.1),  # Adjust color properties
-    transforms.ToTensor(),  # Convert to tensor
+    transforms.RandomResizedCrop(224, scale=(0.8, 1.0)),
+    transforms.RandomHorizontalFlip(p=0.5),
+    transforms.RandomRotation(degrees=45),
+    transforms.RandomAffine(degrees=0, translate=(0.1, 0.1)),
+    transforms.ColorJitter(brightness=0.2, contrast=0.2, saturation=0.2, hue=0.1),
+    transforms.ToTensor(),
 ])
 
 ```
+![image](https://github.com/user-attachments/assets/9aa0f228-2cf4-4c96-9e47-6eacc93d6a9e)
 
-## Results
+
+
+## Training  
+### Config  
+
+- **5-Fold Stratified K-Fold Cross-Validation**  
+- **Batch Size:** `32`
+- **Epochs:** `20`
+- **Learning Rate:** `1e-4`
+- **Optimizer:** `Adam`  
+
+### Result  
+
+This is the training metrics for **Fold 1**. Other folds showed **similar performance**.  
+
 ![image](https://github.com/user-attachments/assets/27c83972-1e57-49af-b53e-f21225127092)
+
+## Inference Samples
+### Sample 1 (Alex Turner)
+![image](https://github.com/user-attachments/assets/b7ace51a-f159-45f7-8955-c077290e33fc)
+
+### Sample 2 (Enrique Iglesias)
+![image](https://github.com/user-attachments/assets/ce7a07cb-0c3b-4ec3-aa85-7d6f52f6aee2)
+
