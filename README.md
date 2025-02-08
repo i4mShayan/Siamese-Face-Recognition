@@ -32,7 +32,7 @@ Where $f(x)$ is the embedding, $\|\cdot\|_2$ is the Euclidean distance, and $\al
 
 The **Pins Face Recognition dataset** contains **17,534 cropped images** of **105 celebrities** collected from **Pinterest**, offering diverse poses and lighting for training face recognition models.  
 
-For this project, we used a **subset of 30 individuals** to reduce computational complexity while ensuring effective training on embedded systems.
+For this project, we used a **subset of 30 individuals** to reduce computational complexity while ensuring effective training.
 
 
 | **Full Dataset Distribution** | **Chosen 30 Persons from Dataset** |
