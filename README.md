@@ -71,6 +71,8 @@ This is the training metrics for **Fold 1**. Other folds showed **similar perfor
 ![image](https://github.com/user-attachments/assets/27c83972-1e57-49af-b53e-f21225127092)
 
 ## Inference Samples
+Neither of these individuals was in the train set.
+
 ### Sample 1 (Alex Turner)
 ![image](https://github.com/user-attachments/assets/b7ace51a-f159-45f7-8955-c077290e33fc)
 
